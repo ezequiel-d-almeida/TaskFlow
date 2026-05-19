@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>TASKFLOW</h1>
+        <nav>
+            <button id="todas">Todas</button>
+            <button id="pendentes">Pendentes</button>
+            <button id="concluidas">Concluidas</button>
+            <button id="prioridades">Prioridade</button>
+            <button id="pesquisa">Pesquisa</button>
+            <button id="logout">Logout</button>
+        </nav>
+    </header>
+
+    <section id="criar">
+        <input type="text" id="nova__tarefa">
+        <button id="enviar__tarefa">Enviar</button>
+        <p id="campo__vazio"></p>
+    </section>
+
+    <section id="section__lista">
+        <ul id="lista">
+        </ul>
+    </section>
+
+    <section id="section__graficos">
+        <canvas id="grafico">
+
+        </canvas>
+    </section>
+    
+    <script type="module" src="./dist/main.js"></script>
+    <script type="module" src="dist/login/auth.js"></script>
+    <script type="module" src="dist/login/logout.js"></script>
+</body>
+</html>
