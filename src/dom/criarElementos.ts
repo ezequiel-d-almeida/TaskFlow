@@ -5,7 +5,9 @@ export function criarP(
 ): HTMLParagraphElement {
     const p = document.createElement("p")
 
-    p.classList.add("tarefa")
+    if (!tarefa.concluida) {
+       p.classList.add("tarefa") 
+    }
 
     if (tarefa.concluida) {
         p.classList.add("tarefa_concluida")
@@ -13,6 +15,28 @@ export function criarP(
 
     p.textContent = tarefa.titulo
     return p;
+}
+
+export function criarPrioridade(
+    tarefa: Tarefa
+) {
+    const pPriority = document.createElement("p")
+
+    pPriority.classList.add("prioridade__tarefa")
+
+    pPriority.textContent = `priordade: ${tarefa.prioridade}`
+    return pPriority;
+}
+
+export function criarPcategoria(
+    tarefa: Tarefa
+) {
+    const pCategory = document.createElement("p")
+
+    pCategory.classList.add("categoria__tarefa")
+
+    pCategory.textContent = `categoria: ${tarefa.categoria}`
+    return pCategory;
 }
 
 export function criarCard() :HTMLLIElement {

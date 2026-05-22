@@ -1,4 +1,6 @@
 export const input = document.querySelector("#nova__tarefa") as HTMLInputElement
+export const selectCategoria = document.querySelector("#categoria") as HTMLSelectElement
+export const selectPrioridade = document.querySelector("#prioridade") as HTMLSelectElement
 export const enviar = document.querySelector("#enviar__tarefa") as HTMLButtonElement
 export const mensagem = document.querySelector("#campo__vazio") as HTMLParagraphElement
 
