@@ -72,6 +72,8 @@ button {
     cursor: pointer;
 
     transition: 0.3s;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 button:hover {
@@ -142,7 +144,9 @@ button:hover {
     transition: 0.3s;
 
     -webkit-appearance: none;
-    appearance: none;    
+    appearance: none;
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #categoria::after {
@@ -180,6 +184,8 @@ button:hover {
 
     -webkit-appearance: none;
     appearance: none;    
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #prioridade::after {

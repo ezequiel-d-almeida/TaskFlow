@@ -1,10 +1,11 @@
-import { enviar, selectCategoria, selectPrioridade } from "../dom/elementos.js";
+import { enviar, selectCategoria, selectPrioridade, btnConcluidas, btnPendentes, btnPrioridades, btnTodas } from "../dom/elementos.js";
 import { input } from "../dom/elementos.js";
 import { criarTarefa } from "./criarTarefa.js";
 import { tarefas } from "../data/tarefas.js";
 import type { Tarefa } from "../types/tarefa.js";
 import { renderizarLista } from "./renderizarTarefas.js";
 import { salvarLocalStorage } from "./storage.js";
+import { filtrarConcluidas, filtrarPendentes, filtrarPrioridade } from "./filtros.js";
 
 export function iniciarEventos() {
     enviar.addEventListener("click", function() {
@@ -22,5 +23,24 @@ export function iniciarEventos() {
         }
 
         console.log(tarefas)
+    })
+
+    btnConcluidas.addEventListener("click", function() {
+        let concluidas: Tarefa[] = filtrarConcluidas(tarefas)
+        renderizarLista(concluidas)
+    })
+
+    btnPendentes.addEventListener("click", function() {
+        let pendentes: Tarefa[] = filtrarPendentes(tarefas)
+        renderizarLista(pendentes)
+    })
+
+    btnPrioridades.addEventListener("click", function() {
+        let prioridadeAlta: Tarefa[] = filtrarPrioridade(tarefas)
+        renderizarLista(prioridadeAlta)
+    })
+
+    btnTodas.addEventListener("click", function() {
+        renderizarLista(tarefas)
     })
 }
