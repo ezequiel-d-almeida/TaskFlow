@@ -3,13 +3,14 @@ import type { Tarefa } from "../types/tarefa.js";
 export function criarTarefa(
     titulo: string,
     categoria: string,
-    prioridade: string
+    prioridade: string,
+    descricao: string
 ) {
     let valida: boolean = validarTitulo(titulo)
 
     if (!valida) {return undefined;}
     
-    let tarefa: Tarefa = MScriacao(titulo, categoria, prioridade)
+    let tarefa: Tarefa = MScriacao(titulo, categoria, prioridade, descricao)
     return tarefa;
 }
 
@@ -26,14 +27,16 @@ function validarTitulo(
 function MScriacao(
     titulo: string,
     categoria: string,
-    prioridade: string
+    prioridade: string,
+    descricao: string
 ) {
     let tarefa: Tarefa = {
         id: Date.now(),
         titulo,
         concluida: false,
         categoria,
-        prioridade
+        prioridade,
+        descricao,
     }
 
     return tarefa 

@@ -17,9 +17,20 @@ export function criarP(
     return p;
 }
 
+export function criarPdescricao(
+    tarefa: Tarefa
+): HTMLParagraphElement {
+    const pDescrition = document.createElement("p")
+
+    pDescrition.classList.add("descricao__tarefa")
+
+    pDescrition.textContent = tarefa.descricao
+    return pDescrition
+}
+
 export function criarPrioridade(
     tarefa: Tarefa
-) {
+): HTMLParagraphElement {
     const pPriority = document.createElement("p")
 
     pPriority.classList.add("prioridade__tarefa")
@@ -30,7 +41,7 @@ export function criarPrioridade(
 
 export function criarPcategoria(
     tarefa: Tarefa
-) {
+): HTMLParagraphElement {
     const pCategory = document.createElement("p")
 
     pCategory.classList.add("categoria__tarefa")
@@ -61,4 +72,3 @@ export function criarBotaoDeletar(): HTMLButtonElement {
 
         return deletar;
 }
-

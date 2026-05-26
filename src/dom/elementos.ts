@@ -3,6 +3,7 @@ export const selectCategoria = document.querySelector("#categoria") as HTMLSelec
 export const selectPrioridade = document.querySelector("#prioridade") as HTMLSelectElement
 export const enviar = document.querySelector("#enviar__tarefa") as HTMLButtonElement
 export const mensagem = document.querySelector("#campo__vazio") as HTMLParagraphElement
+export const descricao = document.querySelector("#descricao") as HTMLTextAreaElement
 
 export const ul = document.querySelector("#lista") as HTMLUListElement
 

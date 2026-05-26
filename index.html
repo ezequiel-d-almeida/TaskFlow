@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlow</title>
     <link rel="stylesheet" href="index.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
 </head>
 <body>
     <header>
         <h1>TASKFLOW</h1>
         <nav>
-            <button id="todas">Todas</button>
-            <button id="pendentes">Pendentes</button>
-            <button id="concluidas">Concluidas</button>
-            <button id="prioridades">Prioridade</button>
-            <button id="pesquisa">Pesquisa</button>
-            <button id="logout">Logout</button>
+            <button id="todas" title="todas"><i class="fa-solid fa-table-columns"></i></button>
+            <button id="pendentes" title="pendentes"><i class="fa-regular fa-clock"></i></button>
+            <button id="concluidas" title="concluidas"><i class="fa-solid fa-circle-check"></i></button>
+            <button id="prioridades" title="prioridades"><i class="fa-solid fa-star"></i></button>
+            <button id="pesquisa" title="pesquisa"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="logout" title="logout">Logout</button>
         </nav>
     </header>
 
     <section id="criar">
 
         <input type="text" id="nova__tarefa">
+
+        <textarea name="descrição" id="descricao"></textarea>
 
         <select name="categoria" id="categoria">
             <option value="Sem categoria">Sem categoria</option>

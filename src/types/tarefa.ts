@@ -4,4 +4,5 @@ export interface Tarefa {
     concluida: boolean
     categoria: string
     prioridade: string
+    descricao: string
 } 

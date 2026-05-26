@@ -1,4 +1,4 @@
-import { enviar, selectCategoria, selectPrioridade, btnConcluidas, btnPendentes, btnPrioridades, btnTodas } from "../dom/elementos.js";
+import { enviar, selectCategoria, selectPrioridade, btnConcluidas, btnPendentes, btnPrioridades, btnTodas, descricao } from "../dom/elementos.js";
 import { input } from "../dom/elementos.js";
 import { criarTarefa } from "./criarTarefa.js";
 import { tarefas } from "../data/tarefas.js";
@@ -12,14 +12,16 @@ export function iniciarEventos() {
         let titulo: string = input.value
         let categoria: string = selectCategoria.value
         let prioridade: string = selectPrioridade.value
+        let descricao_tarefa: string = descricao.value
 
-        let tarefa: Tarefa | undefined = criarTarefa(titulo, categoria, prioridade)
+        let tarefa: Tarefa | undefined = criarTarefa(titulo, categoria, prioridade, descricao_tarefa)
 
         if (tarefa !== undefined) {
             tarefas.push(tarefa)
             salvarLocalStorage()
             renderizarLista(tarefas)
             input.value = ""
+            descricao.value = ""
         }
 
         console.log(tarefas)

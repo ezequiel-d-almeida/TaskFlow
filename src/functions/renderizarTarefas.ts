@@ -1,6 +1,6 @@
 import type { Tarefa } from "../types/tarefa.js";
 import { ul } from "../dom/elementos.js";
-import { criarBotaoConcluir } from "../dom/criarElementos.js";
+import { criarBotaoConcluir, criarPdescricao } from "../dom/criarElementos.js";
 import { criarBotaoDeletar } from "../dom/criarElementos.js";
 import { criarCard } from "../dom/criarElementos.js";
 import { criarP, criarPcategoria, criarPrioridade } from "../dom/criarElementos.js";
@@ -23,6 +23,7 @@ function criarItemLista(
         const deletar = criarBotaoDeletar()
         const pCategory = criarPcategoria(tarefa)
         const pPriority = criarPrioridade(tarefa)
+        const pDescrition = criarPdescricao(tarefa)
 
         deletar.addEventListener("click", function() {
             const index = tarefas.findIndex( item => item.id === tarefa.id )
@@ -41,7 +42,7 @@ function criarItemLista(
             renderizarLista(tarefas)
         })
 
-        li.append(concluse, p, pCategory, pPriority, deletar)
+        li.append(concluse, p, pDescrition, pCategory, pPriority, deletar)
         ul.appendChild(li)
     }
 }
