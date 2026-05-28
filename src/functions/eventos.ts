@@ -6,12 +6,13 @@ import type { Tarefa } from "../types/tarefa.js";
 import { renderizarLista } from "./renderizarTarefas.js";
 import { salvarLocalStorage } from "./storage.js";
 import { filtrarConcluidas, filtrarPendentes, filtrarPrioridade } from "./filtros.js";
+import type { Prioridade } from "../types/prioridade.js";
 
 export function iniciarEventos() {
     enviar.addEventListener("click", function() {
         let titulo: string = input.value
         let categoria: string = selectCategoria.value
-        let prioridade: string = selectPrioridade.value
+        let prioridade: Prioridade = selectPrioridade.value as Prioridade
         let descricao_tarefa: string = descricao.value
 
         let tarefa: Tarefa | undefined = criarTarefa(titulo, categoria, prioridade, descricao_tarefa)

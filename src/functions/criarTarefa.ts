@@ -1,9 +1,10 @@
+import type { Prioridade } from "../types/prioridade.js";
 import type { Tarefa } from "../types/tarefa.js";
 
 export function criarTarefa(
     titulo: string,
     categoria: string,
-    prioridade: string,
+    prioridade: Prioridade,
     descricao: string
 ) {
     let valida: boolean = validarTitulo(titulo)
@@ -27,7 +28,7 @@ function validarTitulo(
 function MScriacao(
     titulo: string,
     categoria: string,
-    prioridade: string,
+    prioridade: Prioridade,
     descricao: string
 ) {
     let tarefa: Tarefa = {

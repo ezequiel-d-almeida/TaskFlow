@@ -132,6 +132,32 @@ button:hover {
         0px 0px 20px rgba(255, 180, 0, 0.15);
 }
 
+
+#descricao {
+    width: 500px;
+
+    padding: 18px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    backdrop-filter: blur(10px);
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+#descricao:focus {
+    box-shadow:
+        0px 0px 0px 1px rgba(255, 190, 80, 0.4),
+        0px 0px 20px rgba(255, 180, 0, 0.15);
+}
+
 #categoria {
     width: 500px;
 
@@ -212,7 +238,22 @@ button:hover {
 
 .prioridade__tarefa {
     font-size: small;
-    color: gray
+    color: rgb(100, 100, 100)   
+}
+
+.baixaPrioridade {
+    font-size: small;
+    color: rgb(48, 116, 43)  
+}
+
+.altaPrioridade {
+    font-size: small;
+    color: rgb(128, 34, 34)  
+}
+
+.mediaPrioridade {
+    font-size: small;
+    color: rgb(95, 97, 26)  
 }
 
 .categoria__tarefa {

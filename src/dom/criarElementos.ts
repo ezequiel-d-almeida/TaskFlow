@@ -33,8 +33,14 @@ export function criarPrioridade(
 ): HTMLParagraphElement {
     const pPriority = document.createElement("p")
 
-    pPriority.classList.add("prioridade__tarefa")
-
+    if (tarefa.prioridade === "Alta") {
+        pPriority.classList.add("altaPrioridade")
+    } else if (tarefa.prioridade === "Média") {
+        pPriority.classList.add("mediaPrioridade")
+    } else {
+        pPriority.classList.add("baixaPrioridade")
+    }
+ 
     pPriority.textContent = `priordade: ${tarefa.prioridade}`
     return pPriority;
 }
