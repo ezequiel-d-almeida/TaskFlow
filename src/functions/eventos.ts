@@ -3,29 +3,48 @@ import { input } from "../dom/elementos.js";
 import { criarTarefa } from "./criarTarefa.js";
 import { tarefas } from "../data/tarefas.js";
 import type { Tarefa } from "../types/tarefa.js";
-import { renderizarLista } from "./renderizarTarefas.js";
+import { renderizarLista, estado } from "./renderizarTarefas.js";
 import { salvarLocalStorage } from "./storage.js";
 import { filtrarConcluidas, filtrarPendentes, filtrarPrioridade } from "./filtros.js";
 import type { Prioridade } from "../types/prioridade.js";
 
 export function iniciarEventos() {
     enviar.addEventListener("click", function() {
-        let titulo: string = input.value
-        let categoria: string = selectCategoria.value
-        let prioridade: Prioridade = selectPrioridade.value as Prioridade
-        let descricao_tarefa: string = descricao.value
+        if (estado.tarefaEmEdicao) {
 
-        let tarefa: Tarefa | undefined = criarTarefa(titulo, categoria, prioridade, descricao_tarefa)
+            estado.tarefaEmEdicao.titulo = input.value
+            estado.tarefaEmEdicao.descricao = descricao.value
+            estado.tarefaEmEdicao.categoria = selectCategoria.value
+            estado.tarefaEmEdicao.prioridade = selectPrioridade.value as Prioridade
 
-        if (tarefa !== undefined) {
-            tarefas.push(tarefa)
             salvarLocalStorage()
             renderizarLista(tarefas)
+
+            estado.tarefaEmEdicao = null
+            enviar.textContent = "Enviar"
+
             input.value = ""
             descricao.value = ""
-        }
 
-        console.log(tarefas)
+        } else {
+            let titulo: string = input.value
+            let categoria: string = selectCategoria.value
+            let prioridade: Prioridade = selectPrioridade.value as Prioridade
+            let descricao_tarefa: string = descricao.value
+
+            let tarefa: Tarefa | undefined = criarTarefa(titulo, categoria, prioridade, descricao_tarefa)
+
+            if (tarefa !== undefined) {
+                tarefas.push(tarefa)
+                salvarLocalStorage()
+                renderizarLista(tarefas)
+                input.value = ""
+                descricao.value = ""
+            }
+
+            console.log(tarefas)
+        }
+        
     })
 
     btnConcluidas.addEventListener("click", function() {

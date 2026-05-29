@@ -73,8 +73,16 @@ export function criarBotaoConcluir(): HTMLButtonElement {
 
 export function criarBotaoDeletar(): HTMLButtonElement {
     const deletar = document.createElement("button")
-        deletar.textContent = "Excluir"
-        deletar.classList.add("botao__excluir")
+    deletar.textContent = "Excluir"
+    deletar.classList.add("botao__excluir")
 
-        return deletar;
+    return deletar;
+}
+
+export function criarBotaoEditar(): HTMLButtonElement {
+    const editar = document.createElement("button")
+    editar.textContent = "Editar"
+    editar.classList.add("botao__editar")
+
+    return editar;  
 }

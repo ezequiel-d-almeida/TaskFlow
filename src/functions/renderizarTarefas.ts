@@ -1,10 +1,8 @@
 import type { Tarefa } from "../types/tarefa.js";
-import { ul } from "../dom/elementos.js";
-import { criarBotaoConcluir, criarPdescricao } from "../dom/criarElementos.js";
-import { criarBotaoDeletar } from "../dom/criarElementos.js";
-import { criarCard } from "../dom/criarElementos.js";
-import { criarP, criarPcategoria, criarPrioridade } from "../dom/criarElementos.js";
+import { ul, input, descricao, selectCategoria, selectPrioridade, enviar } from "../dom/elementos.js";
+import { criarP, criarPcategoria, criarPrioridade, criarBotaoDeletar, criarCard, criarBotaoConcluir, criarBotaoEditar, criarPdescricao } from "../dom/criarElementos.js";
 import { salvarLocalStorage } from "./storage.js";
+import type { Prioridade } from "../types/prioridade.js";
 
 export function renderizarLista(
     tarefas: Tarefa[]
@@ -12,7 +10,11 @@ export function renderizarLista(
     ul.innerHTML = ""
     criarItemLista(ul, tarefas)
 }
-  
+
+export const estado = {
+    tarefaEmEdicao: null as Tarefa | null
+}
+
 function criarItemLista(
     ul: HTMLUListElement,
     tarefas: Tarefa[]
@@ -20,10 +22,10 @@ function criarItemLista(
     for (const tarefa of tarefas) {
         const li = criarCard()
         const p = criarP(tarefa)
-        const deletar = criarBotaoDeletar()
         const pCategory = criarPcategoria(tarefa)
         const pPriority = criarPrioridade(tarefa)
         const pDescrition = criarPdescricao(tarefa)
+        const deletar = criarBotaoDeletar()
 
         deletar.addEventListener("click", function() {
             const index = tarefas.findIndex( item => item.id === tarefa.id )
@@ -42,7 +44,21 @@ function criarItemLista(
             renderizarLista(tarefas)
         })
 
-        li.append(concluse, p, pDescrition, pCategory, pPriority, deletar)
+        const editar = criarBotaoEditar()
+
+        editar.addEventListener("click", function() {
+            
+            estado.tarefaEmEdicao = tarefa
+
+            input.value = tarefa.titulo
+            descricao.value = tarefa.descricao
+            selectCategoria.value = tarefa.categoria
+            selectPrioridade.value = tarefa.prioridade
+
+            enviar.textContent = "Salvar Alterações"
+        })
+
+        li.append(concluse, p, pDescrition, pCategory, pPriority, editar, deletar)
         ul.appendChild(li)
     }
 }
