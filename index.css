@@ -265,28 +265,44 @@ textarea {
 }
 
 .prioridade__tarefa {
-    font-size: small;
     color: rgb(100, 100, 100)   
 }
 
 .baixaPrioridade {
-    font-size: small;
-    color: rgb(48, 116, 43)  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: rgba(18, 252, 2, 0.715)  
 }
 
 .altaPrioridade {
-    font-size: small;
-    color: rgb(128, 34, 34)  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: rgb(251, 1, 1)  
 }
 
 .mediaPrioridade {
-    font-size: small;
-    color: rgb(95, 97, 26)  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    color: rgba(255, 230, 0, 0.705)  
 }
 
 .categoria__tarefa {
-    font-size: small;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
     color: gray
+}
+
+.categoria__tarefa,
+.altaPrioridade,
+.mediaPrioridade,
+.baixaPrioridade {
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
 /* LISTA */
@@ -302,15 +318,22 @@ textarea {
 
     display: grid;
 
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(300px, 1fr)
+        );
+
     gap: 18px;
 }
 
-li {
-    padding: 24px;
-
+.card__tarefa {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+
+    gap: 16px;
+
+    padding: 24px;
 
     border-radius: 24px;
 
@@ -321,6 +344,69 @@ li {
     backdrop-filter: blur(20px);
 
     transition: 0.3s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.card__tarefa::before {
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    right: -50%;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    background: rgba(255,170,0,0.08);
+
+    pointer-events: none;
+}
+
+.card__header {
+    font-size: 22px;
+    font-weight: 600;
+
+    color: rgb(255, 210, 120);
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.card__body {
+    min-height: 80px;
+
+    color: rgba(255,255,255,0.75);
+
+    line-height: 1.6;
+}
+
+.card__info {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+    
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);;
+}
+
+.card__actions {
+    display: flex;
+    gap: 30px;
+
+    justify-content: center;
+
+    margin-top: auto;
+    margin-bottom: 10px;
 }
 
 li:hover {

@@ -41,7 +41,7 @@ export function criarPrioridade(
         pPriority.classList.add("baixaPrioridade")
     }
  
-    pPriority.textContent = `priordade: ${tarefa.prioridade}`
+    pPriority.textContent = `${tarefa.prioridade}`
     return pPriority;
 }
 
@@ -52,7 +52,7 @@ export function criarPcategoria(
 
     pCategory.classList.add("categoria__tarefa")
 
-    pCategory.textContent = `categoria: ${tarefa.categoria}`
+    pCategory.textContent = `${tarefa.categoria}`
     return pCategory;
 }
 
@@ -85,4 +85,28 @@ export function criarBotaoEditar(): HTMLButtonElement {
     editar.classList.add("botao__editar")
 
     return editar;  
+}
+
+export function criarHeader() {
+    const header = document.createElement("div")
+    header.classList.add("card__header")
+    return header;
+}
+
+export function criarBody() {
+    const body = document.createElement("div")
+    body.classList.add("card__body")
+    return body;
+}
+
+export function criarInfo() {
+    const info = document.createElement("div")
+    info.classList.add("card__info")
+    return info;
+}
+
+export function criarActions(): HTMLDivElement {
+    const actions = document.createElement("div")
+    actions.classList.add("card__actions")
+    return actions;
 }

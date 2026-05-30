@@ -1,8 +1,7 @@
 import type { Tarefa } from "../types/tarefa.js";
 import { ul, input, descricao, selectCategoria, selectPrioridade, enviar } from "../dom/elementos.js";
-import { criarP, criarPcategoria, criarPrioridade, criarBotaoDeletar, criarCard, criarBotaoConcluir, criarBotaoEditar, criarPdescricao } from "../dom/criarElementos.js";
+import { criarP, criarPcategoria, criarPrioridade, criarBotaoDeletar, criarCard, criarBotaoConcluir, criarBotaoEditar, criarPdescricao, criarHeader, criarInfo, criarBody, criarActions } from "../dom/criarElementos.js";
 import { salvarLocalStorage } from "./storage.js";
-import type { Prioridade } from "../types/prioridade.js";
 
 export function renderizarLista(
     tarefas: Tarefa[]
@@ -21,12 +20,18 @@ function criarItemLista(
 ) :void {
     for (const tarefa of tarefas) {
         const li = criarCard()
+
+        const header = criarHeader()
+        const info = criarInfo()
+        const body = criarBody()
+        const actions = criarActions()
+
         const p = criarP(tarefa)
         const pCategory = criarPcategoria(tarefa)
         const pPriority = criarPrioridade(tarefa)
         const pDescrition = criarPdescricao(tarefa)
-        const deletar = criarBotaoDeletar()
 
+        const deletar = criarBotaoDeletar()
         deletar.addEventListener("click", function() {
             const index = tarefas.findIndex( item => item.id === tarefa.id )
             tarefas.splice(index, 1)
@@ -36,7 +41,6 @@ function criarItemLista(
         })
 
         const concluse = criarBotaoConcluir()
-
         concluse.addEventListener("click", function() {
             tarefa.concluida = !tarefa.concluida
 
@@ -45,7 +49,6 @@ function criarItemLista(
         })
 
         const editar = criarBotaoEditar()
-
         editar.addEventListener("click", function() {
             
             estado.tarefaEmEdicao = tarefa
@@ -58,7 +61,12 @@ function criarItemLista(
             enviar.textContent = "Salvar Alterações"
         })
 
-        li.append(concluse, p, pDescrition, pCategory, pPriority, editar, deletar)
+        header.append(p)
+        body.append(pDescrition)
+        info.append(pCategory, pPriority)
+        actions.append(concluse, editar, deletar)
+
+        li.append(header, body, info, actions)
         ul.appendChild(li)
     }
 }
