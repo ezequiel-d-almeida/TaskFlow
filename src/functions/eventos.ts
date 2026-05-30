@@ -1,4 +1,4 @@
-import { enviar, selectCategoria, selectPrioridade, btnConcluidas, btnPendentes, btnPrioridades, btnTodas, descricao } from "../dom/elementos.js";
+import { enviar, selectCategoria, selectPrioridade, btnConcluidas, btnPendentes, btnPrioridades, btnTodas, descricao, btnPesquisa, inputPesquisa } from "../dom/elementos.js";
 import { input } from "../dom/elementos.js";
 import { criarTarefa } from "./criarTarefa.js";
 import { tarefas } from "../data/tarefas.js";
@@ -6,6 +6,7 @@ import type { Tarefa } from "../types/tarefa.js";
 import { renderizarLista, estado } from "./renderizarTarefas.js";
 import { salvarLocalStorage } from "./storage.js";
 import { filtrarConcluidas, filtrarPendentes, filtrarPrioridade } from "./filtros.js";
+import { pesquisarTarefas } from "./pesquisa.js";
 import type { Prioridade } from "../types/prioridade.js";
 
 export function iniciarEventos() {
@@ -64,5 +65,20 @@ export function iniciarEventos() {
 
     btnTodas.addEventListener("click", function() {
         renderizarLista(tarefas)
+    })
+
+    btnPesquisa.addEventListener("click", function() {
+        console.log("está rodando")
+    
+        let valorPesquisa: string = ""
+    
+        valorPesquisa = inputPesquisa.value.toLowerCase()
+    
+        if (valorPesquisa.trim() === "") {
+            return;
+        } else {
+            let resultado: Tarefa[] = pesquisarTarefas(valorPesquisa)
+            renderizarLista(resultado)
+        }
     })
 }

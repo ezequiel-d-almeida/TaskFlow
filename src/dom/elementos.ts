@@ -11,4 +11,6 @@ export const btnTodas = document.querySelector("#todas") as HTMLButtonElement
 export const btnPendentes = document.querySelector("#pendentes") as HTMLButtonElement
 export const btnConcluidas = document.querySelector("#concluidas") as HTMLButtonElement
 export const btnPrioridades = document.querySelector("#prioridades") as HTMLButtonElement
+
 export const btnPesquisa = document.querySelector("#pesquisa") as HTMLButtonElement 
+export const inputPesquisa = document.querySelector("#input__pesquisa") as HTMLInputElement

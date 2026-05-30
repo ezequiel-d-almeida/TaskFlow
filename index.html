@@ -18,30 +18,48 @@
             <button id="pendentes" title="pendentes"><i class="fa-regular fa-clock"></i></button>
             <button id="concluidas" title="concluidas"><i class="fa-solid fa-circle-check"></i></button>
             <button id="prioridades" title="prioridades"><i class="fa-solid fa-star"></i></button>
+            <input type="text" id="input__pesquisa">
             <button id="pesquisa" title="pesquisa"><i class="fa-solid fa-magnifying-glass"></i></button>
             <button id="logout" title="logout">Logout</button>
         </nav>
     </header>
 
     <section id="criar">
+        <div id="section_titulo">
+            <label for="nova__tarefa">Titulo</label>
+            <input type="text" id="nova__tarefa">
+        </div>
+        
+        <div id="section__descricao">
+            <label for="descricao">Descrição</label>
+            <textarea name="descrição" id="descricao"></textarea>
+        </div>
+        
+        <div id="configuracoes">
 
-        <input type="text" id="nova__tarefa">
+           <div id="section__categoria">
+                <label for="categoria">Categoria</label>
+                <select name="categoria" id="categoria">
+                    <option value="Sem categoria">Sem categoria</option>
+                    <option value="Estudos">Estudos</option>
+                    <option value="Trabalho">Trabalho</option>
+                    <option value="Pessoal">Pessoal</option>
+                </select>
+            </div>
+        
+            <div id="section__prioridade">
+                <label for="prioridade">Prioridade</label>
+                <select name="prioridade" id="prioridade">
+                    <option value="Sem prioridade">Sem Prioridade</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Média">Média</option>
+                    <option value="Baixa">Baixa</option>
+                </select>
+            </div>
+             
+        </div>
 
-        <textarea name="descrição" id="descricao"></textarea>
-
-        <select name="categoria" id="categoria">
-            <option value="Sem categoria">Sem categoria</option>
-            <option value="Estudos">Estudos</option>
-            <option value="Trabalho">Trabalho</option>
-            <option value="Pessoal">Pessoal</option>
-        </select>
-
-        <select name="prioridade" id="prioridade">
-            <option value="Sem prioridade">Sem Prioridade</option>
-            <option value="Alta">Alta</option>
-            <option value="Média">Média</option>
-            <option value="Baixa">Baixa</option>
-        </select>
+        
 
         <button id="enviar__tarefa">Enviar</button>
 
