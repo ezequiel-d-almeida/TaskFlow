@@ -19,7 +19,7 @@
             <button id="concluidas" title="concluidas"><i class="fa-solid fa-circle-check"></i></button>
             <button id="prioridades" title="prioridades"><i class="fa-solid fa-star"></i></button>
             <input type="text" id="input__pesquisa">
-            <button id="pesquisa" title="pesquisa"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="pesquisa" title="pesquisar"><i class="fa-solid fa-magnifying-glass"></i></button>
             <button id="logout" title="logout">Logout</button>
         </nav>
     </header>
@@ -73,11 +73,18 @@
     </section>
 
     <section id="section__graficos">
-        <canvas id="grafico">
 
-        </canvas>
+    <div id="dashboard__cards">
+
+    </div>
+
+    <div id="container__grafico">
+        <canvas id="grafico"></canvas>
+    </div>
+
     </section>
     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="./dist/main.js"></script>
     <script type="module" src="dist/login/auth.js"></script>
     <script type="module" src="dist/login/logout.js"></script>

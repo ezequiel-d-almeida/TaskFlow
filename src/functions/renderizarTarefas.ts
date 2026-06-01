@@ -2,12 +2,21 @@ import type { Tarefa } from "../types/tarefa.js";
 import { ul, input, descricao, selectCategoria, selectPrioridade, enviar } from "../dom/elementos.js";
 import { criarP, criarPcategoria, criarPrioridade, criarBotaoDeletar, criarCard, criarBotaoConcluir, criarBotaoEditar, criarPdescricao, criarHeader, criarInfo, criarBody, criarActions } from "../dom/criarElementos.js";
 import { salvarLocalStorage } from "./storage.js";
+import { renderEstatisticas } from "../grafics/renderEstatisticas.js";
+import { estatisticas } from "../data/estatisticas.js";
+import { gerarEstatisticas } from "./limparDados.js";
+import { renderDash } from "../grafics/dashboards.js";
 
 export function renderizarLista(
     tarefas: Tarefa[]
 ): void {
     ul.innerHTML = ""
     criarItemLista(ul, tarefas)
+
+    const estatisticas = gerarEstatisticas(tarefas)
+    
+    renderEstatisticas(estatisticas)
+    renderDash(tarefas)
 }
 
 export const estado = {
@@ -47,6 +56,10 @@ function criarItemLista(
             salvarLocalStorage()
             renderizarLista(tarefas)
         })
+
+        if (tarefa.concluida) {
+            concluse.textContent = "Ativar Novamente"
+        }
 
         const editar = criarBotaoEditar()
         editar.addEventListener("click", function() {

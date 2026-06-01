@@ -145,6 +145,8 @@ option {
     color: white;
 
     border: none;
+
+    letter-spacing: 2px;
 }
 
 select {
@@ -172,6 +174,8 @@ select {
     -moz-appearance: none;
 
     transition: 0.3s;
+
+    letter-spacing: 2px;
 }
 
 input,
@@ -409,6 +413,30 @@ textarea {
     margin-bottom: 10px;
 }
 
+.botao__concluir {
+    width: 73px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    backdrop-filter: blur(10px);
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
 li:hover {
     transform: translateY(-4px);
 
@@ -497,4 +525,118 @@ li span {
 
         text-align: center;
     }
+}
+
+#section__graficos {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    padding: 25px;
+}
+
+#dashboard__cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* ========================= */
+/* CARD BASE */
+/* ========================= */
+
+#dashboard__cards div {
+    flex: 1;
+    min-width: 220px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#dashboard__cards div:hover {
+    transform: translateY(-4px);
+}
+
+#dashboard__cards p {
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    letter-spacing: 2px;
+}
+
+/* ========================= */
+/* TOTAL */
+/* ========================= */
+
+.card__total {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(55, 54, 53, 0.22),
+            rgba(2, 4, 86, 0.7)
+        );
+}
+
+/* ========================= */
+/* CONCLUÍDAS */
+/* ========================= */
+
+.card__concluidas {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(55, 54, 53, 0.22),
+            rgba(1, 96, 29, 0.577)
+        );
+}
+
+/* ========================= */
+/* PENDENTES */
+/* ========================= */
+
+.card__pendentes {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(55, 54, 53, 0.22),
+            rgba(187, 131, 1, 0.322)
+        );
+}
+
+/* ========================= */
+/* CONTAINER DO GRÁFICO */
+/* ========================= */
+
+#container__grafico {
+    width: 100%;
+    max-width: 500px;
+
+    height: 400px;
+
+    margin: 40px auto;
+
+    padding: 20px;
+
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.02);
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 25px rgba(0, 255, 136, 0.08),
+        0 0 40px rgba(255, 85, 0, 0.05);
+
+    backdrop-filter: blur(8px);
 }
