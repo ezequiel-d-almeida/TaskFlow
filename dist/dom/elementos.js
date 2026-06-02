@@ -1,0 +1,14 @@
+export const input = document.querySelector("#nova__tarefa");
+export const selectCategoria = document.querySelector("#categoria");
+export const selectPrioridade = document.querySelector("#prioridade");
+export const enviar = document.querySelector("#enviar__tarefa");
+export const mensagem = document.querySelector("#campo__vazio");
+export const descricao = document.querySelector("#descricao");
+export const ul = document.querySelector("#lista");
+export const btnTodas = document.querySelector("#todas");
+export const btnPendentes = document.querySelector("#pendentes");
+export const btnConcluidas = document.querySelector("#concluidas");
+export const btnPrioridades = document.querySelector("#prioridades");
+export const btnPesquisa = document.querySelector("#pesquisa");
+export const inputPesquisa = document.querySelector("#input__pesquisa");
+//# sourceMappingURL=elementos.js.map
