@@ -42,8 +42,6 @@ export function iniciarEventos() {
                 input.value = ""
                 descricao.value = ""
             }
-
-            console.log(tarefas)
         }
         
     })
